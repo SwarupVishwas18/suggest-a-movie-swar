@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cast of <%= moviename %></title>
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <style>
+        .container .card:after {
+    content: "Loki";
+        }
+
+        .container .card{
+            background-image: url('/assets/images/loki.jpg');
+            transition: 1s ease-in-out all;
+        }
+
+        .container .card:hover{
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('/assets/images/loki.jpg');
+            
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+
+    
+    <main class="arena">
+        <h2 class="main-title">Cast of <%= moviename %></h2>
+        <div class="arena-sub">
+            <% casts.forEach(function(result){ %>
+                <% if(result.name == '' || result.profile_path == null){ %>
+                    <% return; %>
+                <% } %>
+            <div class="container">
+                <!-- <%= result.poster_path %> -->
+                <div class="card"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.5)),url('https://image.tmdb.org/t/p/w500<%- result.profile_path %> ');">
+                    
+        
+                    <div class="contentBx">
+                        
+                        <h2>
+                            <%= result.name %>
+                        </h2>
+        
+                        <h3>
+                            as <% if(result.character == ''){ %>
+                                uncredited
+                                <% } else{ %>
+                               <%= result.character %>
+                               <% } %>
+                         </h3>
+                        <a href="/profile/<%- result.id %>">View Profile</a>
+                    </div>
+        
+                </div>
+                </div>
+            <% }); %>
+        </div>
+    </main>
+    
+    <%- include('partials/footer.ejs') %>
+
+    <script src="/assets/js/navbar.js" defer></script>
+</body>
+</html>

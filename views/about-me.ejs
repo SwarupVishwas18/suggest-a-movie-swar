@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Swarup Deepak Vishwas</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .container .card:after {
+    content: "Loki";
+        }
+
+        .container .card{
+            background-image: url('./assets/images/loki.jpg');
+            transition: 1s ease-in-out all;
+        }
+
+        .container .card:hover{
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('./assets/images/loki.jpg');
+            
+        }
+        .banner{
+            font-family: 'Cinzel', serif;
+            text-align: center;
+        }
+        .banner-title, .mob-banner-title{
+            font-size: 5rem;
+        }
+
+        .social-logo{
+            color: #ABB2BF;
+        }
+
+        .socials a{
+            color: currentColor;
+            font-size: x-large;
+            text-decoration: none;
+        }
+    </style>
+  </head>
+<body>
+  
+    <%- include('partials/navbar.ejs') %>
+    <main class="about-main">
+        <h1 class="sub-title">
+            About Me
+        </h1>
+
+        <div class="prof-img">
+            <img src="./assets/images/swarup.jpg" width="300" class="img-prof" alt="Swarup Vishwas">
+        </div>
+
+        <div class="prof-name">
+            <h2>Swarup Deepak Vishwas</h2>
+        </div>
+
+        <blockquote>
+            Yep, that's me trying to look like Eren Yeager but you know..!! <br>
+            I am Full Stack Developer (the reason behind creating this website is solely learning web development) <br>
+            If you think worth contacting, don't backoff!
+        </blockquote>
+
+        <div class="socials">
+            <a href="https://www.instagram.com/swarup.vishwas/" target="_blank">
+                <i class="bx bxl-instagram bx-tada-hover'"></i>
+            </a>
+            <a href="https://github.com/SwarupVishwas18" target="_blank">
+                <i class='bx bxl-github' ></i>
+            </a>
+        </div>
+    </main>
+    
+            
+
+    <%- include('partials/footer.ejs') %>
+
+
+    <script src="./assets/js/navbar.js" defer></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</body>
+</html>

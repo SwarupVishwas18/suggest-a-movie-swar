@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWatchList</title>
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <style>
+        a{
+            color: currentColor;
+            text-decoration: none;
+        }
+
+        .watched, .delete{
+            padding: .3rem 1rem;
+        }
+
+        .watched{
+            background-color: rgba(0, 132, 255, 0.682);
+        }
+
+        .delete{
+            background-color: crimson;
+        }
+
+        .movie-body{
+            width: 100%;
+        }
+        .row{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 5% 2%;
+            align-items: center;
+        }
+
+        .row{
+            padding-bottom: 0%;
+        }
+
+        .movie-details{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+    <main class="details-main cast-main">
+        <section class="movie-details">
+            <article class="movie-header">
+                <h2 class="movie-name">
+                    Guest
+                </h2>
+                
+            </article>
+     
+        <article class="movie-sub-header">
+            <div class="release-date">
+                <strong>Mail ID</strong> : <span id="year-cont">Log In For Mail ID</span>
+            </div>
+
+        </article>
+        <hr width="100%">
+        <article class="movie-body">
+            <h3>
+                Your WatchList
+            </h3>
+            <div class="list-arena">
+                <div class="row">
+                    <div>
+                        <a href="">
+                            Movie
+                        </a>
+                    </div>
+                    <div class="type">
+                        Movie
+                    </div>
+                    <div class="watched">
+                        <a href="">
+                            Watched
+                        </a>
+                    </div>
+                    <div class="delete">
+                        <a href="">
+                            Delete
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <a href="">
+                            Movie
+                        </a>
+                    </div>
+                    <div class="type">
+                        Movie
+                    </div>
+                    <div class="watched">
+                        <a href="">
+                            Watched
+                        </a>
+                    </div>
+                    <div class="delete">
+                        <a href="">
+                            Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+   
+
+        </section>
+
+       
+    </main>
+
+    <footer>
+        &copy; Swarup Deepak Vishwas. <a href="/attribution">Attributions</a>
+    </footer>
+
+    <script src="/assets/js/navbar.js" defer></script>
+</body>
+</html>

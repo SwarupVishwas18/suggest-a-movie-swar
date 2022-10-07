@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile -  <%= profile.name %></title>
+    <link rel="stylesheet" href="/assets/styles/style.css">
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+    <main class="details-main cast-main">
+        <section class="movie-details">
+            <article class="movie-header">
+                <h1 class="movie-name">
+                    <%= profile.name %>
+                </h1>
+                
+                <div class="movie-rating">
+                   <strong>Popularity : </strong> <%= profile.popularity %>
+                </div>
+            </article>
+        
+            <div class="movie-tagline">
+                <h2>
+                    Tagline
+                </h2>
+                <h3>
+                    <%= profile.tagline %>
+                </h3>
+            </div>
+
+        <article class="movie-sub-header">
+            
+            <div class="release-date">
+                <strong>Known For Department</strong> : <span id="year-cont"><%= profile.known_for_department %></span>
+            </div>
+
+        </article>
+
+        <article class="movie-body">
+            <h3>
+                <%= profile.name %>'s Biography
+            </h3>
+            <div class="data">
+                <%= profile.biography %>
+
+               </div>
+        </article>
+
+     
+
+        <article class="btn-controllers">
+            <% if( profile.homepage != null){ %>
+                <a href="<%- profile.homepage %>" target="_blank">
+                    <button class="blue-btn">Visit</button>
+                </a>
+            <% } %>
+        </article>
+
+        </section>
+
+        <section class="movie-img">
+            <img src="https://image.tmdb.org/t/p/w500<%- profile.profile_path %>" alt="<%- profile.name %>" class="mov-img">
+           
+        </section>
+    </main>
+    <div class="castdiv">
+    <h1 class="cast-title">In Movies</h1>
+    <div class="arena-sub-cast">
+        <% casts.forEach(function(cast){ %>
+            
+        <div class="container">
+            <% if(cast.poster_path == null){ %>
+            <div class="card" class  style="background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.5)),url('/assets/images/movie.jpg');">
+           <% } else{ %>
+
+            <div class="card"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.5)),url('https://image.tmdb.org/t/p/w500<%- cast.poster_path %> ');">
+            <% } %>
+                
+    
+                <div class="contentBx">
+                    
+                    <h2>
+                        <%= cast.title %>
+                    </h2>
+
+                    <h3>
+                       as 
+                       <% if(cast.character == ''){ %>
+                        uncredited
+                        <% } else{ %>
+                       <%= cast.character %>
+                       <% } %>
+                    </h3>
+    
+                    
+                    <a href="/movie/<%- cast.id %>">View Profile</a>
+                </div>
+    
+            </div>
+            </div>
+
+            <% }) %>
+
+     
+           
+     
+    </div>
+</div>
+
+<div class="castdiv">
+    <h1 class="cast-title">In TV</h1>
+    <div class="arena-sub-cast">
+        <% tvcasts.forEach(function(cast){ %>
+            
+        <div class="container">
+            <% if(cast.poster_path == null){ %>
+            <div class="card" class  style="background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.5)),url('/assets/images/movie.jpg');">
+           <% } else{ %>
+
+            <div class="card"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.5)),url('https://image.tmdb.org/t/p/w500<%- cast.poster_path %> ');">
+            <% } %>
+                
+    
+                <div class="contentBx">
+                    
+                    <h2>
+                        <%= cast.name %>
+                    </h2>
+
+                    <h3>
+                       as 
+                       <% if(cast.character == ''){ %>
+                        uncredited
+                        <% } else{ %>
+                       <%= cast.character %>
+                       <% } %>
+                    </h3>
+    
+                    
+                    <a href="/tv/<%- cast.id %>">View Profile</a>
+                </div>
+    
+            </div>
+            </div>
+
+            <% }) %>
+
+     
+           
+     
+    </div>
+</div>
+    <%- include('partials/footer.ejs') %>
+
+
+    <script src="/assets/js/navbar.js" defer></script>
+</body>
+</html>

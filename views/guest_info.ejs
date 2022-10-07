@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWatchList</title>
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <style>
+        article.movie-body{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 5rem;
+        }
+        
+
+        @media screen and (max-width:750px) {
+            article.movie-body{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+    <main class="details-main cast-main">
+        <section class="movie-details">
+            <article class="movie-header">
+                <h2 class="movie-name">
+                    What is Guest Mode
+                </h2>
+            </article>
+     
+        
+            <article class="movie-body">
+        <article>
+            <h3>
+                Pros    
+            </h3>
+            <div class="data">
+                <ul>
+                    <li>
+                        No Login/Signup Required
+                    </li>
+                    <li>
+                        No Login/Signup Required
+                    </li>
+                </ul>    
+            </div>
+        </article>
+
+        <article>
+            <h3>
+                Cons    
+            </h3>
+            <div class="data">
+                <ul>
+                    <li>
+                        No Backup Present
+                    </li>
+                    <li>
+                        You cannot use Software on Different Device
+                    </li>
+                    <li>
+                        Data will be lost after using cookies
+                    </li>
+                    <li>
+                        No Custom ID
+                    </li>
+                </ul>    
+            </div>
+        </article>
+
+    </article>
+
+        </section>
+
+      
+    </main>
+
+    <footer>
+        &copy; Swarup Deepak Vishwas. <a href="/attribution">Attributions</a>
+    </footer>
+
+    <script src="./assets/js/navbar.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWatchList</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        .container .card:after {
+    content: "Loki";
+        }
+
+        .container .card{
+            background-image: url('./assets/images/loki.jpg');
+            transition: 1s ease-in-out all;
+        }
+
+        .container .card:hover{
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('./assets/images/loki.jpg');
+            
+        }
+        .banner{
+            font-family: 'Cinzel', serif;
+            text-align: center;
+        }
+        .banner-title, .mob-banner-title{
+            font-size: 5rem;
+        }
+    </style>
+  </head>
+<body>
+    <%- include('partials/navbar.ejs') %>
+
+    <main class="index-main">
+        <div class="banner">
+            For us
+        <h1 class="banner-title">
+            Movies = Emotion
+        </h1>
+        <h1 class="mob-banner-title">
+            🎥 == 💝
+        </h1>
+        <div class="banner-body">
+            We Suggest Movies For Ya So You Won't Waste Time On The Bad One..!!
+        </div>
+    </div>
+    </main>
+    <h1 class="cont-title">
+       Rapid Links
+    </h1>
+        <div class="index-container">
+            <a class="card-links" href="/discover">
+
+            <div  class="card-cont">
+                <div class="img">
+                    <img src="./assets/icons/discover.png" width="150" alt="" srcset="">
+                </div>
+                <div class="data">
+                    Discover
+                </div>
+            </div>
+        </a>
+
+            <a class="card-links" href="/trending">
+            
+            <div class="card-cont">
+                <div class="img">
+                    <img src="./assets/icons/trending-topic.png" width="150" alt="" srcset="">
+                </div>
+                <div class="data">
+                    Trending
+                </div>
+            </div>
+        </a>
+
+            <a class="card-links" href="https://github.com/SwarupVishwas18" target="_blank" id="searchIcon">
+
+            <div class="card-cont">
+                <div class="img">
+                    <img src="./assets/icons/search.png" width="150" alt="" srcset="">
+                </div>
+                <div class="data">
+                    Other Projects
+                </div>
+            </div>
+        </a>
+
+            <a class="card-links" href="/aboutme">
+
+            <div class="card-cont">
+                <div class="img">
+                    <img src="./assets/icons/man.png" width="150" alt="" srcset="">
+                </div>
+                <div class="data">
+                    About Me
+                </div>
+            </div>
+        </a>
+
+        </div>
+        <%- include('partials/footer.ejs') %>
+
+
+    <script src="./assets/js/navbar.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= result.name %></title>
+    <link rel="stylesheet" href="/assets/styles/style.css">
+</head>
+<body>
+
+    <!-- Check Messages Here -->
+    <% if(success){ %>
+    <script defer>
+        alert('Successfully Added To List..!!')
+    </script>
+    <% } %>
+
+    <%- include('partials/navbar.ejs') %>
+    <main class="details-main">
+        <section class="movie-details">
+            <article class="movie-header">
+                <h1 class="movie-name">
+                    <%= result.name %>
+                </h1>
+                
+                <div class="movie-rating">
+                   <strong>Rating : </strong> <%= result.vote_average %>
+                </div>
+            </article>
+        
+            <div class="movie-tagline">
+                <h2>
+                    Tagline
+                </h2>
+                <h3>
+                    <%= result.tagline %>
+                </h3>
+            </div>
+
+        <article class="movie-sub-header">
+            
+            <div class="release-date">
+                <strong>Release Date</strong> : <span id="year-cont"><%= result.first_air_date %></span>
+            </div>
+
+            <div class="parental-rating">
+                <strong>Status </strong> : <span id="par-cont"><%= result.status %></span>
+            </div>
+        </article>
+
+        <article class="movie-body">
+            <h3>
+                <%= result.name %>'s Description
+            </h3>
+            <div class="data">
+                <%= result.overview %>
+
+               </div>
+        </article>
+
+        <article class="genre">
+            <h3>Genres</h3>
+            <% result.genres.forEach(function(genre){ %>
+               
+            <a href="<%- result.homepage %>" target="_blank">
+                <button><%= genre.name %></button>
+            </a>
+            <% }) %>
+        </article>
+        <article class="btn-controllers">
+            
+
+            <a href="<%- result.homepage %>" target="_blank">
+            <button class="blue-btn">Visit</button>
+        </a>
+        
+        </article>
+
+        </section>
+
+        <section class="movie-img">
+            <img src="https://image.tmdb.org/t/p/w500<%- result.poster_path %>" alt="<%- result.name %>" class="mov-img">
+            
+        </section>
+    </main>
+    <div class="castdiv">
+        <h1 class="cast-title">Cast</h1>
+        <div class="arena-sub-cast">
+            <% casts.forEach(function(cast){ %>
+                
+            <div class="container">
+                <!-- <%= result.poster_path %> -->
+                <% if(cast.profile_path == null){ %>
+                    <% if(cast.gender == 2){ %>
+                <div class="card" class  style="background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.5)),url('/assets/images/profile.jpg');">
+                    <% } else{ %>
+                <div class="card" class  style="background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.5)),url('/assets/images/woman.jpg');">
+                    <% } %>
+               <% } else{ %>
+    
+                <div class="card"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.5)),url('https://image.tmdb.org/t/p/w500<%- cast.profile_path %> ');">
+                <% } %>
+                    
+        
+                    <div class="contentBx">
+                        
+                        <h2>
+                            <%= cast.name %>
+                        </h2>
+    
+                        <h3>
+                           as <% if(cast.character == ''){ %>
+                            uncredited
+                            <% } else{ %>
+                           <%= cast.character %>
+                           <% } %>
+                        </h3>
+        
+                        
+                        <a href="/profile/<%- cast.id %>">View Profile</a>
+                    </div>
+        
+                </div>
+                </div>
+    
+                <% }) %>
+    
+         
+                <div class="container">
+                    <!-- <%= result.poster_path %> -->
+                    <div class="card"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.5));">
+                        
+            
+                        <div class="contentBx">
+                            
+                            <h2>
+                                VIEW MORE
+                            </h2>
+            
+                            <a href="/tvcast/<%- result.id %>">click here</a>
+                        </div>
+            
+                    </div>
+                    </div>
+         
+        </div>
+    </div>
+    
+        <div class="similar">
+        <h1 class="cast-title">Similar Movies</h1>
+        <div class="arena-sub-cast">
+           
+            <% sims.forEach(function(sim){ %>
+                
+                <div class="container">
+                    <!-- <%= result.poster_path %> -->
+                    <div class="card"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.5)),url('https://image.tmdb.org/t/p/w500<%- sim.poster_path %> ');">
+                        
+            
+                        <div class="contentBx">
+                            
+                            <h2>
+                                <%= sim.name %>
+                            </h2>
+        
+                            <div class="size">
+                                <h3>Rating :</h3>
+                                <span><%= sim.vote_average %></span>
+                            </div>
+            
+                            
+                            <a href="/tv/<%- sim.id %>">View Profile</a>
+                        </div>
+            
+                    </div>
+                    </div>
+        
+                    <% }) %>
+    
+                                <!-- SEE ALL -->
+    
+                                <div class="container">
+                                    <!-- <%= result.poster_path %> -->
+                                    <div class="card"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.67), rgba(0, 0, 0, 0.5));">
+                                        
+                            
+                                        <div class="contentBx">
+                                            
+                                            <h2>
+                                                VIEW MORE
+                                            </h2>
+                            
+                                            <a href="/tvsimilar/<%- result.id %>?movie=true">click here</a>
+                                        </div>
+                            
+                                    </div>
+                                    </div>
+        </div>
+    </div>
+    <%- include('partials/footer.ejs') %>
+
+
+    <script src="/assets/js/navbar.js" defer></script>
+</body>
+</html>
