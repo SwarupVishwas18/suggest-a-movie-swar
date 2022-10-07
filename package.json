@@ -4,7 +4,8 @@
   "description": "Watch List For Movie Lovers",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon start"
   },
   "author": "Swarup Deepak Vishwas",
   "license": "ISC",
