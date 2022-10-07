@@ -668,5 +668,7 @@ main.form div{
         display: grid;
         grid-template-columns: 1fr;
     }
-   
+    #query{
+        max-width: 170px;
+    }
 }
