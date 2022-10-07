@@ -19,5 +19,5 @@ movieController(app);
 tvController(app);
 navController(app);
 // Listen To Port
-app.listen(3000);
+app.listen(process.env.PORT || 8080);
 console.log("Listening to port 3000");
