@@ -1,6 +1,4 @@
 # suggest-a-movie-swar
-Hello
-
 - Discover New Movies
 - Check Out Trending Movies
 - View Movie By Cast and Vice Versa
